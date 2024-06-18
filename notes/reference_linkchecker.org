@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       f86429a1-7636-4abe-96c9-6b2875086e3b
+:END:
+#+title: LinkChecker
+#+hugo_bundle: reference_linkchecker
+#+export_file_name: index
+#+date: [2024-06-23 Sun]
+#+filetags: :Tool:WebDevelopment:
+
+- URL :: https://github.com/linkchecker/linkchecker
+
+Checks for broken links in web sites.

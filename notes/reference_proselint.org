@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       70effbe0-744f-491c-a5aa-097025fafb28
+:END:
+#+title: proselint
+#+hugo_bundle: reference_proselint
+#+export_file_name: index
+#+date: [2024-06-23 Sun]
+#+filetags: :Tool:Writing:
+
+- URL :: https://github.com/amperser/proselint
+
+A linter for prose.

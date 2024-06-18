@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       24bace97-827e-4367-ad50-66b39c76bdc8
+:END:
+#+title: My website
+#+hugo_bundle: project_my_website
+#+export_file_name: index
+#+date: [2024-06-17 Mon]
+#+filetags: :Project:Website:Hugo:
+
+- URL :: https://www.unindented.org/
+
+* Goals
+
+- Maintain an online presence
+- Share knowledge
+- Improve technical skills
+- Improve content creation skills
+
+* Tasks
+
+** TODO Add initial tasks

@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       5b6feef1-5809-4d63-ba23-850bc9fb0edf
+:END:
+#+title: RespImageLint
+#+hugo_bundle: reference_respimagelint
+#+export_file_name: index
+#+date: [2024-06-22 Sat]
+#+filetags: :Tool:WebDevelopment:
+
+- URL :: https://github.com/ausi/respimagelint
+
+Bookmarklet that checks responsive images against a list of common mistakes and best practices.
