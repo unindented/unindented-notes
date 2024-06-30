@@ -6,6 +6,7 @@
 #+export_file_name: index
 #+date: [2024-06-15 Fri]
 #+filetags: :Uncategorized:
+#+hugo_custom_front_matter: :katex true
 
 A note demonstrating some features of [[https://orgmode.org/][Org Mode]] and the [[https://ox-hugo.scripter.co/][=ox-hugo=]] exporter.
 {.lead}
