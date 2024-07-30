@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       1b5bbd90-e995-454c-aed0-8719ede90275
+:END:
+#+title: Digital Minimalism
+#+hugo_bundle: reference_digital_minimalism
+#+export_file_name: index
+#+date: [2024-06-18 Tue]
+#+filetags: :Book:Focus:SelfHelp:
+
+- Author :: Cal Newport
+- Year :: 2019
