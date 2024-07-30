@@ -1,0 +1,18 @@
+:PROPERTIES:
+:ID:       349c2c05-f0eb-41e8-a029-8a9dca4e381c
+:END:
+#+title: My notes
+#+hugo_bundle: project_my_notes
+#+export_file_name: index
+#+date: [2024-07-12 Fri]
+#+filetags: :Project:
+
+- URL :: https://notes.unindented.org/
+
+* Goals
+
+- Experiment with the concept of a second brain.
+
+* Tasks
+
+** TODO Add initial tasks
