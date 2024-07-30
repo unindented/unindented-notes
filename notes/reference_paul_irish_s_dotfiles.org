@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       9cb8ec40-dbf6-4f38-99ee-e0a4503f29a6
+:END:
+#+title: Paul Irish's dotfiles
+#+hugo_bundle: reference_paul_irish_s_dotfiles
+#+export_file_name: index
+#+date: [2024-06-16 Sun]
+#+filetags: :Dotfiles:
+
+- URL :: https://github.com/paulirish/dotfiles
