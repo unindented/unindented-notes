@@ -1,0 +1,26 @@
+:PROPERTIES:
+:ID:       dece65d2-55e4-46fb-a2ad-5c21eca78842
+:END:
+#+title: Auto-export Org files to Hugo when modified
+#+hugo_bundle: note_auto_export_org_files_to_hugo
+#+export_file_name: index
+#+date: [2024-07-12 Fri]
+#+filetags: :Emacs:Hugo:
+
+* Using =org-hugo-auto-export-mode=
+
+One way to do this is to enable the minor mode [[https://ox-hugo.scripter.co/doc/auto-export-on-saving/][=org-hugo-auto-export-mode=]] provided by [[https://ox-hugo.scripter.co/][=ox-hugo=]]. Maybe you'd have the following in a =.dir-locals.el= file:
+
+#+begin_src emacs-lisp
+((org-mode . ((eval . (org-hugo-auto-export-mode)))))
+#+end_src
+
+* Using =entr=
+
+Another way to do this is to use [[id:067b4f79-cde9-4e52-8cf5-9ae0b8015895][=entr=]]. I have a script =export.el= that I use to export my Org notes. I can use =entr= to invoke it whenever a note changes:
+
+#+begin_src shell
+while sleep 0.1 do; git ls-files -cdmo --exclude-standard | entr -cdp ./export.el /_; done
+#+end_src
+
+The flag =-c= clears the screen, and =-p= postpones the first execution until a file is modified. =/_= gets replaced with the absolute path of the first file that triggered the event.
