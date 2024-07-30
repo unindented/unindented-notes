@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       ff387f3b-f6b2-4c1a-beed-31c172fa0f93
+:END:
+#+title: Cover Your Tracks
+#+hugo_bundle: reference_cover_your_tracks
+#+export_file_name: index
+#+date: [2024-07-09 Tue]
+#+filetags: :Tool:Privacy:
+
+- URL :: https://coveryourtracks.eff.org/
+
+Helps you see how uniquely identifiable your browser is.
