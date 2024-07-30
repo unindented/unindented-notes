@@ -1,0 +1,77 @@
+:PROPERTIES:
+:ID:       837081c8-250d-409f-a8c8-e8092f7f8c35
+:END:
+#+title: Java scripts
+#+hugo_bundle: note_java_scripts
+#+export_file_name: index
+#+date: [2024-07-14 Sun]
+#+filetags: :Java:
+
+* Single-file
+
+Turns out that starting with Java 11 you can [[https://openjdk.org/jeps/330][run single-file Java programs without compiling them first (JEP 330)]]. So if you have a file =Factorial.java= with these contents:
+
+#+begin_src java
+public class Factorial {
+  public static void main(String[] args) {
+    int n = Integer.parseInt(args[0]);
+    System.out.println(factorial(n));
+  }
+
+  public static long factorial(int n) {
+    return n == 0 ? 1 : n * factorial(n - 1);
+  }
+}
+#+end_src
+
+You can run it like:
+
+#+begin_src shell
+java Factorial.java 5
+#+end_src
+
+* Multi-file
+
+And starting with Java 22 you can [[https://openjdk.org/jeps/458][also run multi-file Java programs without compiling them (JEP 458)]]. Say you have a file =Factorial.java= with these contents:
+
+#+begin_src java
+public class Factorial {
+  public static long factorial(int n) {
+    return n == 0 ? 1 : n * factorial(n - 1);
+  }
+}
+#+end_src
+
+And a =Prog.java= file with these contents
+
+#+begin_src java
+public class Prog {
+  public static void main(String[] args) {
+    int n = Integer.parseInt(args[0]);
+    System.out.println(Factorial.factorial(n));
+  }
+}
+#+end_src
+
+You can run it like:
+
+#+begin_src shell
+java Prog.java 5
+#+end_src
+
+* Shebang files
+
+You can add a shebang line to single-file programs! Rename the above file to =factorial= (without =.java=), mark it as executable, and add this shebang line:
+
+#+begin_src java :linenos inline,hl_lines=[1]
+#!/usr/bin/env java --source 21
+public class Factorial {
+  // ...
+}
+#+end_src
+
+Now you can run it like:
+
+#+begin_src shell
+./factorial 5
+#+end_src
