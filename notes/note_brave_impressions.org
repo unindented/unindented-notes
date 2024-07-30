@@ -1,0 +1,39 @@
+:PROPERTIES:
+:ID:       aba691f6-e248-4624-a593-22445a2f105f
+:END:
+#+title: Brave impressions
+#+hugo_bundle: note_brave_impressions
+#+export_file_name: index
+#+date: [2024-07-09 Tue]
+#+filetags: :Browser:
+
+I tried version 1.67 of [[id:ecd5b620-bb38-4eaf-b2ed-b63f59814f6d][Brave]] on macOS.
+
+* What I liked
+
+- Ad and tracker blocking turned on by default.
+
+- [[https://brave.com/search/][Brave Search]] is pretty decent.
+
+* What I didn't like
+
+- Start page and URL bar promote quite prominently [[https://brave.com/brave-rewards/][an ad-viewing rewards program]].
+
+  #+attr_html: :alt Screenshot of a web browser's start page. There's a panel on the right promoting Brave Rewards.
+  #+caption: Brave's start page showing the rewards promo.
+  [[./note_brave_impressions_rewards@2x.png]]
+
+- Other parts of the UI promote [[https://brave.com/leo/][an AI assistant]], [[https://brave.com/wallet/][a crypto wallet]], [[https://brave.com/firewall-vpn/][a VPN]], [[https://brave.com/talk/][a video-conferencing product]], [[https://brave.com/brave-news/][an ad-supported news feed]]... I think they're only missing a shopping feature like [[https://www.microsoft.com/edge/shopping][Edge's]]. 😬
+
+  #+attr_html: :alt Screenshot of a web browser's start page. There's a panel on the left promoting Leo, an AI assistant, and a popover on the right promoting Brave Wallet.
+  #+caption: Brave's AI assistant and crypto wallet promos.
+  [[./note_brave_impressions_promotions@2x.png]]
+
+* Business model
+
+They explain how they make money in their FAQ: [[https://brave.com/faq/#how-brave-makes-money][How does Brave make money?]]
+
+- Sale of start page takeovers and [[https://brave.com/brave-ads/][Brave Ads]].
+- Subscriptions to [[https://brave.com/firewall-vpn/][Brave Firewall + VPN]] and [[https://brave.com/talk/][Brave Talk Premium]].
+- Transaction fees in [[https://brave.com/wallet/][Brave Wallet]] and [[https://brave.com/brave-rewards/][Brave Rewards]].
+- Partner deals. (They mention platform integrations, but don't specify further.)
