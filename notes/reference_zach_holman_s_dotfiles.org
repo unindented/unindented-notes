@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       a415d6a8-8edc-41bd-831e-5650093006f2
+:END:
+#+title: Zach Holman's dotfiles
+#+hugo_bundle: reference_zach_holman_s_dotfiles
+#+export_file_name: index
+#+date: [2024-06-16 Sun]
+#+filetags: :Dotfiles:
+
+- URL :: https://github.com/holman/dotfiles
