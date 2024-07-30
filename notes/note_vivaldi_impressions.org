@@ -1,0 +1,50 @@
+:PROPERTIES:
+:ID:       6c317005-2545-412b-aa43-0f3f16462f06
+:END:
+#+title: Vivaldi impressions
+#+hugo_bundle: note_vivaldi_impressions
+#+export_file_name: index
+#+date: [2024-07-09 Tue]
+#+filetags: :Browser:
+
+I tried version 6.8 of [[id:b883de17-f6ed-4eda-9f4d-c336fbd7789f][Vivaldi]] on macOS.
+
+* What I liked
+
+- Ad and tracker blocking can be turned on during the onboarding flow.
+
+- Built-in RSS reader makes it easy to discover and subscribe to feeds. You can preview a feed before subscribing:
+
+  #+attr_html: :alt Screenshot of a web browser showing a preview of the different items in an RSS feed.
+  #+caption: Vivaldi's RSS feed preview.
+  [[./note_vivaldi_impressions_rss_reader@2x.png]]
+
+* What I didn't like
+
+- Laggy UI animations.
+
+- Bing as default search engine. If you switch to Google, they try to nudge you towards one of their partner search engines.
+
+  #+attr_html: :alt Screenshot of a web browser's start page. At the top there's a callout asking the user to choose a partner search engine to help support the company. There's an open drop-down list with four options: Bing, DuckDuckGo, Ecosia, and Startpage.com.
+  #+caption: Vivaldi's sponsored search engines.
+  [[./note_vivaldi_impressions_search_engines@2x.png]]
+
+- Start page that shows sponsored bookmarks by default.
+
+  #+attr_html: :alt Screenshot of a web browser's start page. Below a search box there's a grid of bookmarks, including Vivaldi Social, Vivaldi Community, Amazon, Booking.com, Yelp, eBay, Walmart, and others.
+  #+caption: Vivaldi's sponsored bookmarks.
+  [[./note_vivaldi_impressions_bookmarks@2x.png]]
+
+- Search bar that shows sponsored URLs by default.
+
+  #+attr_html: :alt Screenshot of a web browser. The user has typed letter 'M' in the address bar, and it has been auto-completed to Macys.com. There's an open drop-down list below the address bar, with an option group at the top that says 'Best Result (Direct Match)', and an option for Macys.com with a pill on the right that says 'Direct Match'.
+  #+caption: Vivaldi's sponsored search results.
+  [[./note_vivaldi_impressions_direct_matches@2x.png]]
+
+* Business model
+
+They wrote about their business model on their blog: [[https://vivaldi.com/blog/vivaldi-business-model/][What's Vivaldi's business model?]]
+
+- Partner deals with search engines.
+- Sponsored bookmarks on start page.
+- Sponsored URLs in any of the browser's search fields.
