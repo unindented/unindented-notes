@@ -1,0 +1,25 @@
+:PROPERTIES:
+:ID:       798e85d3-f357-4730-9c78-cddd3c79a56b
+:END:
+#+title: Martian Mono
+#+hugo_bundle: reference_martian_mono
+#+export_file_name: index
+#+date: [2024-07-07 Sun]
+#+filetags: :ProgrammingFont:
+
+- URL :: https://evilmartians.com/products/martian-mono
+- URL :: https://github.com/evilmartians/mono
+
+Monospaced version of the [[https://evilmartians.com/products/martian-grotesk][Martian Grotesk]] font.
+
+#+attr_html: :class hover:blur-sm
+#+attr_html: :alt Main glyphs rendered in Martian Mono.
+[[./reference_martian_mono_1@2x.png]]
+
+#+attr_html: :class hover:blur-sm
+#+attr_html: :alt Some text rendered in Martian Mono.
+[[./reference_martian_mono_2@2x.png]]
+
+#+attr_html: :class hover:blur-sm
+#+attr_html: :alt Some code rendered in Martian Mono.
+[[./reference_martian_mono_3@2x.png]]
