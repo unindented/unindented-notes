@@ -1,0 +1,102 @@
+:PROPERTIES:
+:ID:       9bc3f28f-7a01-4b76-af1a-753035528d0f
+:END:
+#+title: My dotfiles
+#+hugo_bundle: project_my_dotfiles
+#+export_file_name: index
+#+date: [2024-06-17 Mon]
+#+filetags: :Project:Dotfiles:
+
+- URL :: https://github.com/unindented/dotfiles
+
+* Inspiration
+
+- [[id:abf3965d-4230-4b4b-9027-ff724db3d369][thoughtbot dotfiles]]
+- [[id:734429c4-3704-4a40-aa6b-242799e1394b][Mathias Bynens's dotfiles]]
+- [[id:9cb8ec40-dbf6-4f38-99ee-e0a4503f29a6][Paul Irish's dotfiles]]
+- [[id:a415d6a8-8edc-41bd-831e-5650093006f2][Zach Holman's dotfiles]]
+
+* Install script
+
+** Basic version
+
+#+begin_src shell
+#!/usr/bin/env sh
+
+ignore="install.sh,LICENSE,README.md"
+
+for name in *; do
+  target="$HOME/.$name"
+  # If the target exists...
+  if [ -e "$target" ]; then
+    # ... and it's not a symlink...
+    if [ ! -L "$target" ]; then
+      # ... show a warning and do nothing.
+      echo "WARNING: $target exists but is not a symlink"
+    fi
+  # If the target doesn't exist...
+  else
+    # ... and it's not ignored...
+    if ! echo "$ignore" | grep -q "\b$name\b"; then
+      echo "Creating $target"
+      # ... symlink it.
+      ln -s "$PWD/$name" "$target"
+    fi
+  fi
+done
+#+end_src
+
+** Advanced version
+
+#+begin_src shell
+#!/usr/bin/env sh
+
+ignore="install.sh,LICENSE,README.md"
+cutstring="DO NOT EDIT BELOW THIS LINE"
+
+for name in *; do
+  target="$HOME/.$name"
+  # If the target exists...
+  if [ -e "$target" ]; then
+    # ... and it's not a symlink...
+    if [ ! -L "$target" ]; then
+      # ... find the cutstring in the target.
+      linesabove=$(grep -m 1 -n "$cutstring" "$target" | sed "s/:.*//")
+      # If we found the cutstring...
+      if [ -n "$linesabove" ]; then
+        echo "Updating $target"
+        # ... copy it and the lines above it to a temp file.
+        tmp=$(mktemp)
+        head -n "$linesabove" "$target" >"$tmp"
+        # Then find the cutstring in the (reversed) source.
+        linesbelow=$(sed '1!G;h;$!d' "$name" | grep -m 1 -n "$cutstring" | sed "s/:.*//")
+        # If we found the cutstring, append the lines below it to the temp file.
+        if [ -n "$linesbelow" ]; then
+          tail -n "$((linesbelow - 1))" "$name" >>"$tmp"
+        # If we didn't find the cutstring, append the whole file to the temp file.
+        else
+          cat "$name" >>"$tmp"
+        fi
+        # Finally, move the temp file to the target destination.
+        mv "$tmp" "$target"
+      # If we didn't find the cutstring in the target, show a warning and do nothing.
+      else
+        echo "WARNING: $target exists but is not a symlink"
+      fi
+    fi
+  # If the target doesn't exist...
+  else
+    # ... and it's not ignored...
+    if ! echo "$ignore" | grep -q "\b$name\b"; then
+      echo "Creating $target"
+      # ... if it contains the cutstring, copy it.
+      if grep -q "$cutstring" "$name"; then
+        cp "$PWD/$name" "$target"
+      # ... if it doesn't contain the cutstring, symlink it.
+      else
+        ln -s "$PWD/$name" "$target"
+      fi
+    fi
+  fi
+done
+#+end_src
