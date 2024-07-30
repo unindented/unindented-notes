@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       fcee275c-6251-4aaa-a1a3-176a7e3124f0
+:END:
+#+title: Emacs script pitfalls
+#+hugo_bundle: reference_emacs_script_pitfalls
+#+export_file_name: index
+#+date: [2024-06-21 Fri]
+#+filetags: :Emacs:
+
+- URL :: https://swsnr.de/emacs-script-pitfalls/
