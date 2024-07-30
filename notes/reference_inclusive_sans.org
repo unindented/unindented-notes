@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:       b877d45b-4161-4b4c-9a33-926fd389ee36
+:END:
+#+title: Inclusive Sans
+#+hugo_bundle: reference_inclusive_sans
+#+export_file_name: index
+#+date: [2024-07-12 Fri]
+#+filetags: :Font:Accessibility:
+
+- URL :: https://www.oliviaking.com/inclusive-sans
+
+Designed for readability.
+
+#+attr_html: :class hover:blur-sm
+#+attr_html: :alt Main glyphs rendered in Inclusive Sans.
+[[./reference_inclusive_sans_1@2x.png]]
+
+#+attr_html: :class hover:blur-sm
+#+attr_html: :alt Some text rendered in Inclusive Sans.
+[[./reference_inclusive_sans_2@2x.png]]
