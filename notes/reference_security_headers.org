@@ -1,0 +1,27 @@
+:PROPERTIES:
+:ID:       e2fb3e76-0b1a-4a07-aafe-bf06f8c6945e
+:END:
+#+title: Security Headers
+#+hugo_bundle: reference_security_headers
+#+export_file_name: index
+#+date: [2024-07-08 Mon]
+#+filetags: :Tool:Security:WebDevelopment:
+
+- URL :: https://securityheaders.com/
+
+Checks a site's security-related HTTP headers.
+
+- Referrer Policy
+- Permissions Policy
+- HTTP Strict Transport Security (HSTS)
+- Cross-Origin Opener Policy (COOP)
+- Cross-Origin Embedder Policy (COEP)
+- Cross-Origin Resource Policy (CORP)
+- Content Security Policy (CSP)
+- X-Content-Type-Options
+- X-Frame-Options
+
+Here's a [[https://securityheaders.com/?q=www.unindented.org&followRedirects=on][sample report for my domain]]:
+
+#+attr_html: :alt Screenshot of report for www.unindented.org, with a score of A+.
+[[./reference_security_headers_report@2x.png]]
