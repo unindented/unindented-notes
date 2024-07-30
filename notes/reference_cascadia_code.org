@@ -1,0 +1,24 @@
+:PROPERTIES:
+:ID:       38508778-0e60-41d0-9d35-6ae4dbbae6b7
+:END:
+#+title: Cascadia Code
+#+hugo_bundle: reference_cascadia_code
+#+export_file_name: index
+#+date: [2024-07-07 Sun]
+#+filetags: :ProgrammingFont:
+
+- URL :: https://github.com/microsoft/cascadia-code
+
+Monospaced font with ligatures.
+
+#+attr_html: :class hover:blur-sm
+#+attr_html: :alt Main glyphs rendered in Cascadia Code.
+[[./reference_cascadia_code_1@2x.png]]
+
+#+attr_html: :class hover:blur-sm
+#+attr_html: :alt Some text rendered in Cascadia Code.
+[[./reference_cascadia_code_2@2x.png]]
+
+#+attr_html: :class hover:blur-sm
+#+attr_html: :alt Some code rendered in Cascadia Code.
+[[./reference_cascadia_code_3@2x.png]]
