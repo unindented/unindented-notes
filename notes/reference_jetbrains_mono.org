@@ -1,0 +1,25 @@
+:PROPERTIES:
+:ID:       b0360f5c-6f35-4e91-86af-5343143e7c4d
+:END:
+#+title: JetBrains Mono
+#+hugo_bundle: reference_jetbrains_mono
+#+export_file_name: index
+#+date: [2024-07-07 Sun]
+#+filetags: :ProgrammingFont:
+
+- URL :: https://jetbrains.com/mono
+- URL :: https://github.com/JetBrains/JetBrainsMono
+
+Monospaced font with ligatures.
+
+#+attr_html: :class hover:blur-sm
+#+attr_html: :alt Main glyphs rendered in JetBrains Mono.
+[[./reference_jetbrains_mono_1@2x.png]]
+
+#+attr_html: :class hover:blur-sm
+#+attr_html: :alt Some text rendered in JetBrains Mono.
+[[./reference_jetbrains_mono_2@2x.png]]
+
+#+attr_html: :class hover:blur-sm
+#+attr_html: :alt Some code rendered in JetBrains Mono.
+[[./reference_jetbrains_mono_3@2x.png]]
