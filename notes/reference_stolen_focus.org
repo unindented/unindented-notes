@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       fcb68228-023d-426d-a3e7-7f8c99ff88a1
+:END:
+#+title: Stolen Focus
+#+hugo_bundle: reference_stolen_focus
+#+export_file_name: index
+#+date: [2024-06-18 Tue]
+#+filetags: :Book:Focus:SelfHelp:
+
+- Author :: Johann Hari
+- Year :: 2022
