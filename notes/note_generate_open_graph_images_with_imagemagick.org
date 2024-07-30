@@ -1,0 +1,78 @@
+:PROPERTIES:
+:ID:       b4561412-a068-4a2b-aea3-1c19272fb589
+:END:
+#+title: Generate Open Graph images with ImageMagick
+#+hugo_bundle: note_generate_open_graph_images_with_imagemagick
+#+export_file_name: index
+#+date: [2024-07-13 Sat]
+#+filetags: :ImageMagick:WebDevelopment:
+
+Automating the generation of Open Graph images for different pages in your site is pretty common. However, most solutions I saw out there were quite heavy. Here's an alternative that only relies on having ImageMagick installed.
+
+I created a template image 1200x630 with my favorite editor. I used it as the foundation on which I'd be adding page-specific information. Something like this:
+
+#+attr_html: :alt Image with a small circle on the bottom left, and a rectangle on the right.
+#+caption: Template image that serves as foundation.
+[[./note_generate_open_graph_images_with_imagemagick_template@2x.png]]
+
+I wanted to add four pieces of text:
+
+- Some flavor text, in a rectangle 625x35, with offset +75+50.
+- Title of the page, in a rectangle 625x275, with offset +75+110.
+- Author's name, in a rectangle 450x50, with offset +250+465.
+- Author's handle, in a rectangle 450x40, with offset +250+525.
+
+#+attr_html: :alt Same as the previous image, but with an additional four rectangles, indicating the position of the four pieces of text.
+#+caption: Areas of the image where I'd be adding page-specific information.
+[[./note_generate_open_graph_images_with_imagemagick_areas@2x.png]]
+
+Here's the ImageMagick command that adds the four pieces of text:
+
+#+begin_src shell :linenos inline,hl_lines=[6,13,20,27]
+magick open_graph_template.png \
+  \( -size 625x35 \
+      -background none \
+      -fill "#b4befe" \
+      -font "Roboto-Bold" \
+      label:"Check out this article" \) \
+  -geometry +75+50 \
+  -composite \
+  \( -size 625x275 \
+      -background none \
+      -fill white \
+      -font "Roboto-Bold" \
+      caption:"The quick brown fox" \) \
+  -geometry +75+110 \
+  -composite \
+  \( -size 450x50 \
+      -background none \
+      -fill "#b4befe" \
+      -font "Roboto-Bold" \
+      label:"Daniel Perez Alvarez" \) \
+  -geometry +250+465 \
+  -composite \
+  \( -size 450x40 \
+      -background none \
+      -fill "#b4befe" \
+      -font "Roboto-Bold" \
+      label:"@unindented" \) \
+  -geometry +250+525 \
+  -composite \
+  open_graph_the_quick_brown_fox.png
+#+end_src
+
+And here's the result:
+
+#+attr_html: :alt Same as the previous image, but the four rectangles have been replaced with pieces of text with different font sizes.
+#+caption: Resulting image with a short title.
+[[./note_generate_open_graph_images_with_imagemagick_result@2x.png]]
+
+ImageMagick takes care of sizing the text in =label:= and =caption:= images to fill the dimensions of =-size=, because I'm not providing a =-pointsize=. Here's the result with a longer title:
+
+#+attr_html: :alt Same as the previous image, but one of the pieces of text is now longer, and has a smaller font size.
+#+caption: Resulting image with a longer title.
+[[./note_generate_open_graph_images_with_imagemagick_result_long@2x.png]]
+
+#+begin_note
+If the text is not rendering with the right font, make sure you [[id:7974d533-76f0-420e-a018-8ae3591ffb4c][configure ImageMagick to find all fonts on your system]].
+#+end_note
