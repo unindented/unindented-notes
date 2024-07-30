@@ -1,0 +1,28 @@
+:PROPERTIES:
+:ID:       efca44fb-8bb4-4f0b-b7a4-ff0223986c7e
+:END:
+#+title: HTTP Observatory
+#+hugo_bundle: reference_http_observatory
+#+export_file_name: index
+#+date: [2024-07-07 Sun]
+#+filetags: :Tool:Security:WebDevelopment:
+
+- URL :: https://developer.mozilla.org/en/observatory
+
+Checks a site's security-related HTTP headers.
+
+- Cookies
+- Redirection
+- Referrer Policy
+- HTTP Strict Transport Security (HSTS)
+- Cross-Origin Resource Sharing (CORS)
+- Cross-Origin Resource Policy (CORP)
+- Content Security Policy (CSP)
+- Subresource Integrity (SRI)
+- X-Content-Type-Options
+- X-Frame-Options
+
+Here's a [[https://developer.mozilla.org/en/observatory/analyze?host=www.unindented.org][sample report for my domain]]:
+
+#+attr_html: :alt Screenshot of report for www.unindented.org, with a score of A+.
+[[./reference_http_observatory_report@2x.png]]
