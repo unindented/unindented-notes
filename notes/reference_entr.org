@@ -1,0 +1,44 @@
+:PROPERTIES:
+:ID:       067b4f79-cde9-4e52-8cf5-9ae0b8015895
+:END:
+#+title: entr
+#+hugo_bundle: reference_entr
+#+export_file_name: index
+#+date: [2024-07-12 Fri]
+#+filetags: :Tool:CLI:
+
+- URL :: https://github.com/eradman/entr
+
+Run arbitrary commands when files change.
+
+* Rebuild when files changed
+
+To rebuild a project whenever a source file changes:
+
+#+begin_src shell
+find src | entr make
+#+end_src
+
+* Rebuild when files added
+
+You can use =-d= to have =entr= exit if new files are added to the directories of files provided as input. Combine it with a loop, and you can monitor those new files too:
+
+#+begin_src shell
+while sleep 0.1; do find src | entr -d make; done
+#+end_src
+
+* Reload a process
+
+To launch and auto-reload a Node.js server:
+
+#+begin_src shell
+ls *.js | entr -r node app.js
+#+end_src
+
+* Monitor via =git ls-files=
+
+Instead of using =find= or =ls=, it may be more convenient to rely on =git=:
+
+#+begin_src shell
+git ls-files -cdmo --exclude-standard | entr make
+#+end_src
