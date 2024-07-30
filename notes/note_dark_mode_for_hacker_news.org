@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       be9fe363-6aa2-4cf3-aee2-45f3b5bbd8c9
+:END:
+#+title: Dark mode for Hacker News with uBlock Origin
+#+hugo_bundle: note_dark_mode_for_hacker_news
+#+export_file_name: index
+#+date: [2024-07-10 Wed]
+#+filetags: :Uncategorized:
+
+In the [[https://ublockorigin.com/][uBlock Origin]] settings, under /My filters/, you can add a filter that inverts the colors of the page:
+
+#+caption: I lowered the inversion amount from 100% to 90% because the resulting colors were too harsh for me, but feel free to play with different values.
+#+begin_src text
+news.ycombinator.com##html:style(filter: invert(90%) hue-rotate(180deg); background: white)
+#+end_src
+
+This is the result:
+
+#+attr_html: :alt Screenshot of the front page of Hacker News. The header has white text on an orange background, and the body has white and gray text on an almost-black background.
+#+caption: Hacker News with inverted colors.
+[[./note_dark_mode_for_hacker_news_screenshot@2x.png]]
