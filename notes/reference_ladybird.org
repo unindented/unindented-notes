@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       6b3d63a4-8e60-493e-9372-7d00f1b3122b
+:END:
+#+title: Ladybird
+#+hugo_bundle: reference_ladybird
+#+export_file_name: index
+#+date: [2024-07-07 Sun]
+#+filetags: :Browser:
+
+- URL :: https://ladybird.org/
+
+Web browser backed by a 501(c)(3) non-profit.
+
+- Not based on Chromium (unlike Chrome, Edge, Brave, Arc, Opera, [[id:b883de17-f6ed-4eda-9f4d-c336fbd7789f][Vivaldi]]).
+- Not trying to monetize, so no search deals, promoted bookmarks, or similar crap.
+
+They're targeting a first alpha release for 2026.
