@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       7ac4f127-a938-41ba-8bf4-3afca9f2faf4
+:END:
+#+title: Deep Work
+#+hugo_bundle: reference_deep_work
+#+export_file_name: index
+#+date: [2024-06-18 Tue]
+#+filetags: :Book:Focus:SelfHelp:
+
+- Author :: Cal Newport
+- Year :: 2016
