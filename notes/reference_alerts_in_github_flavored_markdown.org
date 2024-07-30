@@ -1,0 +1,89 @@
+:PROPERTIES:
+:ID:       c089a8a7-50b7-434b-b82c-4806200046e9
+:END:
+#+title: Alerts in GitHub-flavored Markdown
+#+hugo_bundle: reference_alerts_in_github_flavored_markdown
+#+export_file_name: index
+#+date: [2024-06-19 Wed]
+#+filetags: :GitHub:Markdown:
+
+- URL :: https://docs.github.com/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts
+
+They're also called admonitions or callouts elsewhere.
+
+* Markdown syntax
+
+#+begin_src markdown
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+#+end_src
+
+* Org syntax
+
+#+begin_src org
+#+begin_quote
+[!NOTE]
+Useful information that users should know, even when skimming content.
+#+end_quote
+
+#+begin_quote
+[!TIP]
+Helpful advice for doing things better or more easily.
+#+end_quote
+
+#+begin_quote
+[!IMPORTANT]
+Key information users need to know to achieve their goal.
+#+end_quote
+
+#+begin_quote
+[!WARNING]
+Urgent info that needs immediate user attention to avoid problems.
+#+end_quote
+
+#+begin_quote
+[!CAUTION]
+Advises about risks or negative outcomes of certain actions.
+#+end_quote
+#+end_src
+
+* Preview
+
+/(I guess this only works if you're viewing this file from GitHub.)/
+
+#+begin_quote
+[!NOTE]
+Useful information that users should know, even when skimming content.
+#+end_quote
+
+#+begin_quote
+[!TIP]
+Helpful advice for doing things better or more easily.
+#+end_quote
+
+#+begin_quote
+[!IMPORTANT]
+Key information users need to know to achieve their goal.
+#+end_quote
+
+#+begin_quote
+[!WARNING]
+Urgent info that needs immediate user attention to avoid problems.
+#+end_quote
+
+#+begin_quote
+[!CAUTION]
+Advises about risks or negative outcomes of certain actions.
+#+end_quote
