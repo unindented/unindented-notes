@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       b883de17-f6ed-4eda-9f4d-c336fbd7789f
+:END:
+#+title: Vivaldi
+#+hugo_bundle: reference_vivaldi
+#+export_file_name: index
+#+date: [2024-07-07 Sun]
+#+filetags: :Browser:
+
+- URL :: https://vivaldi.com/
+
+Web browser with built-in email client, calendar, and RSS reader. The company behind it, Vivaldi Technologies, was co-founded by Jon von Tetzchner, former CEO of Opera.
+
+- Based on Chromium.
+- Revisits features of Presto-based Opera (tab stacks, keyboard shortcuts, mouse gestures).
+- Comes with built-in ad and tracker blocker.
+- Customizable UI.
