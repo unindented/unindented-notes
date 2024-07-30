@@ -1,0 +1,24 @@
+:PROPERTIES:
+:ID:       3437a85d-6404-48e7-bcf8-9f0d55aeeed1
+:END:
+#+title: List installed JVMs on macOS
+#+hugo_bundle: note_list_installed_jvms_on_macos
+#+export_file_name: index
+#+date: [2024-07-14 Sun]
+#+filetags: :Java:
+
+You can list all installed JVMs by running:
+
+#+begin_src shell
+/usr/libexec/java_home --verbose
+#+end_src
+
+The output looks like this:
+
+#+begin_src text
+Matching Java Virtual Machines (3):
+    21.0.3 (arm64) "Microsoft" - "OpenJDK 21.0.3" /Library/Java/JavaVirtualMachines/microsoft-21.jdk/Contents/Home
+    17.0.11 (arm64) "Microsoft" - "OpenJDK 17.0.11" /Library/Java/JavaVirtualMachines/microsoft-17.jdk/Contents/Home
+    11.0.23 (arm64) "Microsoft" - "OpenJDK 11.0.23" /Library/Java/JavaVirtualMachines/microsoft-11.jdk/Contents/Home
+/Library/Java/JavaVirtualMachines/microsoft-21.jdk/Contents/Home
+#+end_src
