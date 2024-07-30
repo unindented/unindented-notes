@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:       b8b666ae-7c98-4d60-b465-a0e8c69544c8
+:END:
+#+title: Atkinson Hyperlegible
+#+hugo_bundle: reference_atkinson_hyperlegible
+#+export_file_name: index
+#+date: [2024-07-12 Fri]
+#+filetags: :Font:Accessibility:
+
+- URL :: https://brailleinstitute.org/freefont
+
+Focused on letterform distinction, to improve readability.
+
+#+attr_html: :class hover:blur-sm
+#+attr_html: :alt Main glyphs rendered in Atkinson Hyperlegible.
+[[./reference_atkinson_hyperlegible_1@2x.png]]
+
+#+attr_html: :class hover:blur-sm
+#+attr_html: :alt Some text rendered in Atkinson Hyperlegible.
+[[./reference_atkinson_hyperlegible_2@2x.png]]
