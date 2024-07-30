@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       abf3965d-4230-4b4b-9027-ff724db3d369
+:END:
+#+title: thoughtbot dotfiles
+#+hugo_bundle: reference_thoughtbot_dotfiles
+#+export_file_name: index
+#+date: [2024-06-16 Sun]
+#+filetags: :Dotfiles:
+
+- URL :: https://github.com/thoughtbot/dotfiles
