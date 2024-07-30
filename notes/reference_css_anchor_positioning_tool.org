@@ -1,0 +1,16 @@
+:PROPERTIES:
+:ID:       ff6b8065-9a65-44e6-912b-48886016f77d
+:END:
+#+title: CSS anchor positioning tool
+#+hugo_bundle: reference_css_anchor_positioning_tool
+#+export_file_name: index
+#+date: [2024-07-24 Wed]
+#+filetags: :CSS:WebDevelopment:
+
+- URL :: https://anchor-tool.com/
+
+Page that illustrates the possible values for =position-anchor= that is part of the [[https://developer.mozilla.org/docs/Web/CSS/CSS_anchor_positioning][CSS anchor positioning API]].
+
+#+attr_html: :alt Screenshot of the page. On the left it shows an interactive illustration with all the possible ways of positioning a box with respect to a button with a question mark. On the right it shows the CSS code corresponding to the selected positioning option.
+#+caption: One of the possible values.
+[[./reference_css_anchor_positioning_tool_screenshot@2x.png]]
