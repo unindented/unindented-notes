@@ -1,0 +1,16 @@
+:PROPERTIES:
+:ID:       ecd5b620-bb38-4eaf-b2ed-b63f59814f6d
+:END:
+#+title: Brave
+#+hugo_bundle: reference_brave
+#+export_file_name: index
+#+date: [2024-07-07 Sun]
+#+filetags: :Browser:
+
+- URL :: https://brave.com/
+
+Web browser that blocks ads and trackers by default. The company behind it, Brave Software, was co-founded by Brendan Eich, the creator of JavaScript, and former CEO of Mozilla.
+
+- Based on Chromium.
+- Blocks ads and trackers by default.
+- Allows users to enable optional ads in exchange for small amounts of a crypto token.
