@@ -1,0 +1,16 @@
+:PROPERTIES:
+:ID:       1f189bd5-a49a-4ed6-b17d-2938ef31cf9c
+:END:
+#+title: Encrypting Org files in Emacs
+#+hugo_bundle: reference_encrypting_org_files_in_emacs
+#+export_file_name: index
+#+date: [2024-06-23 Sun]
+#+filetags: :Emacs:Privacy:
+
+- URL :: https://orgmode.org/worg/org-tutorials/encrypting-files.html
+
+Encrypting an Org file with Emacs and GPG is as easy as renaming the file to have the extension =.gpg=, and adding this as the first line of the file:
+
+#+begin_src org
+# -*- mode:org; epa-file-encrypt-to: ("daniel@unindented.org") -*-
+#+end_src
