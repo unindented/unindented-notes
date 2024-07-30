@@ -1,0 +1,36 @@
+:PROPERTIES:
+:ID:       7974d533-76f0-420e-a018-8ae3591ffb4c
+:END:
+#+title: Configure ImageMagick to find all fonts on macOS
+#+hugo_bundle: note_configure_imagemagick_to_find_all_fonts_on_macos
+#+export_file_name: index
+#+date: [2024-07-12 Fri]
+#+filetags: :ImageMagick:
+
+ImageMagick checks different files when loading fonts. To see which ones your installation is checking, run this:
+
+#+begin_src shell
+magick convert -debug configure -list font 2>&1 | grep -E "Searching|Loading"
+#+end_src
+
+In my case, one of those files is =~/.config/ImageMagick/type.xml=. Instead of creating it by hand, I'm going to use [[https://legacy.imagemagick.org/Usage/scripts/imagick_type_gen][a script]] provided by the ImageMagick project:
+
+#+begin_src shell
+mkdir -p ~/.config/ImageMagick
+curl -L https://www.imagemagick.org/Usage/scripts/imagick_type_gen > ~/.config/ImageMagick/type_gen
+chmod +x ~/.config/ImageMagick/type_gen
+#+end_src
+
+Now I'm going to pipe the paths of all font files in my system to the =type_gen= script, and write the results to =type.xml=:
+
+#+begin_src shell
+find /System/Library/Fonts /Library/Fonts ~/Library/Fonts -name "*.[ot]tf" | \
+    ~/.config/ImageMagick/type_gen -f - > \
+    ~/.config/ImageMagick/type.xml
+#+end_src
+
+Now ImageMagick will show all those fonts when running this command:
+
+#+begin_src shell
+magick convert -list font
+#+end_src
