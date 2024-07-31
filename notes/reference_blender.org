@@ -1,0 +1,16 @@
+:PROPERTIES:
+:ID:       43692909-d011-42f3-bb8e-9505a7fb71a8
+:END:
+#+title: Blender
+#+hugo_bundle: reference_blender
+#+export_file_name: index
+#+date: [2024-07-30 Tue]
+#+filetags: :Tool:3D:
+
+- URL :: https://www.blender.org/
+
+3D creation suite for modeling, rigging, animation, simulation, rendering, compositing and motion tracking, and video editing.
+
+#+attr_html: :alt Screenshot of Blender's UI. In the center there's a 3D model of a flower.
+#+caption: Blender v4.2 on macOS. Flower model by [[http://www.sequensizer.org/][MiRA]].
+[[./reference_blender_screenshot@2x.png]]
