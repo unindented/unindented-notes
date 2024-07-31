@@ -1,0 +1,39 @@
+:PROPERTIES:
+:ID:       2f14f588-f6ca-4e96-ba33-7114f11fdf2e
+:END:
+#+title: act
+#+hugo_bundle: reference_act
+#+export_file_name: index
+#+date: [2024-07-30 Tue]
+#+filetags: :Tool:CLI:
+
+- URL :: https://github.com/nektos/act
+
+Run your GitHub Actions locally.
+
+* Run all workflows for an event
+
+#+begin_src shell
+act push
+#+end_src
+
+* List all workflows for an event
+
+#+begin_src shell
+act -l pull_request
+#+end_src
+
+* Run job with name
+
+#+begin_src shell
+act -j test
+#+end_src
+
+* Configuration file
+
+You can configure things via a =.actrc= file, like so:
+
+#+begin_src text
+--container-architecture=linux/amd64
+--action-offline-mode
+#+end_src
