@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:       497e2fe6-107d-4027-b5dd-3a6cba5569df
+:END:
+#+title: MagicaVoxel
+#+hugo_bundle: reference_magicavoxel
+#+export_file_name: index
+#+date: [2024-07-30 Tue]
+#+filetags: :Tool:3D:
+
+- URL :: https://ephtracy.github.io/
+
+GPU-based voxel art editor and interactive path tracing renderer.
+
+#+attr_html: :alt Screenshot of MagicaVoxel's UI. In the center there's four voxel models of Doom guy seen from different angles.
+#+caption: MagicaVoxel v0.99.6 on macOS.
+[[./reference_magicavoxel_screenshot@2x.png]]
+
+#+attr_html: :alt 3D render of a futuristic bus stop, illuminated by neon lights and the glow of digital displays.
+#+caption: Sample image generated with MagicaVoxel. Model by [[https://ephtracy.github.io/?page=mv_contact][ephtracy]].
+[[./reference_magicavoxel_sample@2x.png]]
