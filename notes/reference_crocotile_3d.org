@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       bbc5026d-dc02-48a9-928f-bc6706160c3f
+:END:
+#+title: Crocotile 3D
+#+hugo_bundle: reference_crocotile_3d
+#+export_file_name: index
+#+date: [2024-08-02 Fri]
+#+filetags: :Tool:3D:
+
+- URL :: https://www.crocotile3d.com/
+
+Tool for creating 3D scenes with tiles.
