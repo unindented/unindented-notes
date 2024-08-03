@@ -1,0 +1,29 @@
+:PROPERTIES:
+:ID:       a4c376c8-3571-473a-805f-67c1550d3e91
+:END:
+#+title: Image to text with LLaVA and Ollama
+#+hugo_bundle: note_image_to_text_with_llava_and_ollama
+#+export_file_name: index
+#+date: [2024-08-02 Fri]
+#+filetags: :LLM:Accessibility:
+
+Sometimes I have trouble writing alt text for images, because I don't know where to start, or how to phrase things, or whatever. I've found that [[https://llava-vl.github.io/][LLaVA]] is good enough to get me going.
+
+I run it via [[https://ollama.com/][Ollama]], like this:
+
+#+begin_src text
+ollama run llava:13b "describe this image concisely: ./some_image.png"
+#+end_src
+
+For example, for this image:
+
+#+attr_html: :width 400 :height 300
+#+attr_html: :alt Illustration with three cartoon characters. On the left is a female character with her hand on her hip. In the center is the same female character with the same pose, but with no face. On the right is a black silhouette of a male character.
+#+caption: Concept art of characters in [[https://studio.blender.org/films/coffee-run/][Coffee Run]], by [[https://studio.blender.org/][Blender Studio]].
+[[./note_demo_image_small@2x.png]]
+
+I got the following, which is a decent starting point:
+
+#+begin_quote
+The image shows a digital illustration of three characters. On the left, there is a female character with blue hair and casual attire, displaying a confident stance with her hands on her hips. In the center, another similar female character is depicted, also with blue hair but wearing a tank top instead of a shirt. To the right, there is an outline of a male figure with no visible features or clothing, suggesting his form is not fully visible in the illustration. The background is dark with a purple hue, providing a stark contrast to the characters.
+#+end_quote
