@@ -1,0 +1,43 @@
+:PROPERTIES:
+:ID:       6abe45a9-ac3b-432a-8ddc-8df3c87e23cc
+:END:
+#+title: Set up CodeMirror using `basicSetup`
+#+hugo_bundle: note_set_up_codemirror_using_basicsetup
+#+export_file_name: index
+#+date: [2024-08-03 Sat]
+#+filetags: :CodeMirror:WebDevelopment:
+
+Setting up CodeMirror with =basicSetup= looks like this:
+
+#+begin_src javascript
+import { basicSetup, EditorView } from "codemirror";
+import {
+  javascript,
+  javascriptLanguage,
+  scopeCompletionSource,
+} from "@codemirror/lang-javascript";
+
+const parent = document.querySelector("#editor");
+const doc = `function microsoftShuffle(arr) {
+  return arr.slice().sort(function () {
+    return 0.5 - Math.random();
+  });
+}`;
+const extensions = [
+  basicSetup,
+  javascript(),
+  javascriptLanguage.data.of({
+    autocomplete: scopeCompletionSource(globalThis),
+  }),
+];
+
+window.editor = new EditorView({
+  doc,
+  extensions,
+  parent,
+});
+#+end_src
+
+* CodePen
+
+[[codepen-embed:NWZjaNx][Set up CodeMirror with =basicSetup=]]
