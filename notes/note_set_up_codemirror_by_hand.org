@@ -1,0 +1,99 @@
+:PROPERTIES:
+:ID:       6ee81bdf-efc8-4f27-83f5-7021d31f2e70
+:END:
+#+title: Set up CodeMirror by hand
+#+hugo_bundle: note_set_up_codemirror_by_hand
+#+export_file_name: index
+#+date: [2024-08-03 Sat]
+#+filetags: :CodeMirror:WebDevelopment:
+
+Setting up CodeMirror by hand looks like this:
+
+#+begin_src javascript
+import {
+  autocompletion,
+  closeBrackets,
+  closeBracketsKeymap,
+  completionKeymap,
+} from "@codemirror/autocomplete";
+import { defaultKeymap, history, historyKeymap } from "@codemirror/commands";
+import {
+  javascript,
+  javascriptLanguage,
+  scopeCompletionSource,
+} from "@codemirror/lang-javascript";
+import {
+  bracketMatching,
+  defaultHighlightStyle,
+  foldGutter,
+  foldKeymap,
+  indentOnInput,
+  syntaxHighlighting,
+} from "@codemirror/language";
+import { lintKeymap } from "@codemirror/lint";
+import { highlightSelectionMatches, searchKeymap } from "@codemirror/search";
+import { EditorState } from "@codemirror/state";
+import {
+  crosshairCursor,
+  drawSelection,
+  dropCursor,
+  highlightActiveLine,
+  highlightActiveLineGutter,
+  highlightSpecialChars,
+  keymap,
+  lineNumbers,
+  rectangularSelection,
+  EditorView,
+} from "@codemirror/view";
+
+const parent = document.querySelector("#editor");
+const doc = `function microsoftShuffle(arr) {
+  return arr.slice().sort(function () {
+    return 0.5 - Math.random();
+  });
+}`;
+const basicExtensions = [
+  lineNumbers(),
+  highlightActiveLineGutter(),
+  highlightSpecialChars(),
+  history(),
+  foldGutter(),
+  drawSelection(),
+  dropCursor(),
+  EditorState.allowMultipleSelections.of(true),
+  indentOnInput(),
+  syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
+  bracketMatching(),
+  closeBrackets(),
+  autocompletion(),
+  rectangularSelection(),
+  crosshairCursor(),
+  highlightActiveLine(),
+  highlightSelectionMatches(),
+  keymap.of([
+    ...closeBracketsKeymap,
+    ...defaultKeymap,
+    ...searchKeymap,
+    ...historyKeymap,
+    ...foldKeymap,
+    ...completionKeymap,
+    ...lintKeymap,
+  ]),
+];
+const jsExtensions = [
+  javascript(),
+  javascriptLanguage.data.of({
+    autocomplete: scopeCompletionSource(globalThis),
+  }),
+];
+
+window.editor = new EditorView({
+  doc,
+  extensions: [basicExtensions, jsExtensions],
+  parent,
+});
+#+end_src
+
+* CodePen
+
+[[codepen-embed:oNrWGYQ][Set up CodeMirror by hand]]
