@@ -8,3 +8,222 @@
 #+filetags: :Emacs:
 
 - URL :: https://swsnr.de/emacs-script-pitfalls/
+
+Writing scripts with Emacs Lisp is tricky.
+
+* Shebang line
+
+Emacs has a =--script= option to load and eval a file:
+
+#+begin_src emacs-lisp
+#!/usr/bin/emacs --script
+(message "Hello world")
+#+end_src
+
+But we can't assume the location of the =emacs= binary... What if we use =/usr/bin/env=?
+
+#+begin_src emacs-lisp
+#!/usr/bin/env emacs --script
+(message "Hello world")
+#+end_src
+
+Linux doesn't split arguments in the shebang, and sends =emacs --script= as a single argument to =/usr/bin/env=.
+
+The portable and reliable way is this evil trick:
+
+#+caption: The article explains why this works. I didn't bother noting it here.
+#+begin_src emacs-lisp
+#!/bin/sh
+":"; exec emacs --script "$0" "$@" # -*- mode: emacs-lisp; lexical-binding: t; -*-
+(message "Hello world")
+#+end_src
+
+* Inhibiting site-start
+
+The =--script= option is a shortcut for =--batch --load=, i.e. enter batch mode and load the given file. While =--batch= disables the user initialization file, it still processes the global site initialization file, which we don't want. We can add =--quick= though, which is similar to =--no-init-file --no-site-file --no-splash=:
+
+#+begin_src emacs-lisp
+#!/bin/sh
+":"; exec emacs --quick --script "$0" "$@" # -*- mode: emacs-lisp; lexical-binding: t; -*-
+(message "Hello world")
+#+end_src
+
+* Processing command-line arguments
+
+We can access command-line arguments via =command-line-args-left=, or its alias =argv=:
+
+#+begin_src emacs-lisp
+#!/bin/sh
+":"; exec emacs --quick --script "$0" "$@" # -*- mode: emacs-lisp; lexical-binding: t; -*-
+(message "Hello: %S" argv)
+#+end_src
+
+Passing options causes a weird error:
+
+#+begin_src shell
+./hello.el --greeting 'Good morning %s!' 'John Doe'
+# Hello: ("--greeting" "Good morning %s!" "John Doe")
+# Unknown option `--greeting'
+#+end_src
+
+This is because Emacs processes all arguments in order of their appearance.
+
+One thing we can do is to empty =argv= at the end of our script:
+
+#+begin_src emacs-lisp
+#!/bin/sh
+":"; exec emacs --quick --script "$0" "$@" # -*- mode: emacs-lisp; lexical-binding: t; -*-
+
+(message "Hello: %S" argv)
+(setq argv nil)
+#+end_src
+
+Another thing we can do is to force Emacs to exit early:
+
+#+begin_src emacs-lisp
+#!/bin/sh
+":"; exec emacs --quick --script "$0" "$@" # -*- mode: emacs-lisp; lexical-binding: t; -*-
+
+(message "Hello: %S" argv)
+(kill-emacs 0)
+#+end_src
+
+Either way, Emacs now ignores our custom options:
+
+#+begin_src shell
+./hello.el --greeting 'Good morning %s!' 'John Doe'
+# Hello: ("--greeting" "Good morning %s!" "John Doe")
+#+end_src
+
+However, it still tries to process the ones it understands:
+
+#+begin_src shell
+./hello.el --version 'John Doe'
+# GNU Emacs 29.1
+# Copyright (C) 2023 Free Software Foundation, Inc.
+# GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+# You may redistribute copies of GNU Emacs
+# under the terms of the GNU General Public License.
+# For more information about these matters, see the file named COPYING.
+#+end_src
+
+Emacs printed its own version and exited before our script even saw the =--version= argument.
+
+We can solve the issue by separating Emacs arguments from our own with =--=:
+
+#+begin_src emacs-lisp
+#!/bin/sh
+":"; exec emacs --quick --script "$0" -- "$@" # -*- mode: emacs-lisp; lexical-binding: t; -*-
+
+(message "Hello: %S" argv)
+(kill-emacs 0)
+#+end_src
+
+We'll get the separator in the list of arguments though:
+
+#+begin_src shell
+./hello.el --version 'John Doe'
+#Hello: ("--" "--version" "John Doe")
+#+end_src
+
+If we're processing arguments in a loop, we need to remember to pop the first one:
+
+#+begin_src emacs-lisp
+#!/bin/sh
+":"; exec emacs --quick --script "$0" -- "$@" # -*- mode: emacs-lisp; lexical-binding: t; -*-
+
+(let ((greeting "Hello %s!")
+      options-done
+      names)
+  (pop argv)  ; Remove the "--" separator
+  (while argv
+    (let ((option (pop argv)))
+      (cond
+       (options-done (push option names))
+       ;; Don't process options after "--"
+       ((string= option "--") (setq options-done t))
+       ((string= option "--greeting")
+        (setq greeting (pop argv)))
+       ((string-match "\\`--greeting=\\(\\(?:.\\|\n\\)*\\)\\'" option)
+        (setq greeting (match-string 1 option)))
+       ((string-prefix-p "--" option)
+        (message "Unknown option: %s" option)
+        (kill-emacs 1))
+       (t (push option names)))
+
+      (unless (> (length greeting) 0)
+        (message "Missing argument for `--greeting`!")
+        (kill-emacs 1))))
+
+  (unless names
+    (message "Missing names!")
+    (kill-emacs 1))
+
+  (dolist (name (nreverse names))
+    (message greeting name))
+
+  (kill-emacs 0))
+#+end_src
+
+Now Emacs doesn't interfere with our options and arguments:
+
+#+begin_src shell
+./hello.el --greeting='Hello %s' 'John Doe' 'Donald Duck'
+# Hello John Doe
+# Hello Donald Duck
+#+end_src
+
+* Standard output
+
+The =message= function writes to =stderr=:
+
+#+begin_src shell
+./hello.el 'John Doe' 'Donald Duck' > /dev/null
+# Hello John Doe!
+# Hello Donald Duck!
+#+end_src
+
+However, these were not errors, so we should probably be writing them to =stdout=:
+
+#+begin_src emacs-lisp
+#!/bin/sh
+":"; exec emacs --quick --script "$0" "$@" # -*-emacs-lisp-*-
+
+(while argv
+  (princ (format "Hello %s!" (pop argv)))
+  (terpri))
+
+(kill-emacs 0)
+#+end_src
+
+* Standard input
+
+The minibuffer reads from =stdin= in batch mode:
+
+#+begin_src emacs-lisp
+#!/bin/sh
+":"; exec emacs --quick --script "$0" "$@" # -*-emacs-lisp-*-
+
+(let (name)
+  (while (and (setq name (ignore-errors (read-from-minibuffer "")))
+              (> (length name) 0))
+    (princ (format "Hello %s!" name))
+    (terpri)))
+
+(kill-emacs 0)
+#+end_src
+
+* Debugging
+
+We can enable stacktraces at the start of the program, by setting =debug-on-error=:
+
+#+begin_src emacs-lisp
+#!/bin/sh
+":"; exec emacs --quick --script "$0" "$@" # -*-emacs-lisp-*-
+
+(setq debug-on-error t)
+
+(message "%S" (+ (car argv) (cadr argv)))
+
+(setq argv nil)
+#+end_src
