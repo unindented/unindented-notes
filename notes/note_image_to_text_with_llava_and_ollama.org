@@ -9,7 +9,7 @@
 
 Sometimes I have trouble writing alt text for images, because I don't know where to start, or how to phrase things, or whatever. I've found that [[https://llava-vl.github.io/][LLaVA]] is good enough to get me going.
 
-I run it via [[https://ollama.com/][Ollama]], like this:
+I run it via [[id:345a9620-386d-4f15-a633-3056f197f3c8][Ollama]], like this:
 
 #+begin_src text
 ollama run llava:13b "describe this image concisely: ./some_image.png"
