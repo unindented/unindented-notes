@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       afb947d2-3159-46bb-af94-a52f80873eba
+:END:
+#+title: The Grug Brained Developer
+#+hugo_bundle: reference_the_grug_brained_developer
+#+export_file_name: index
+#+date: [2024-08-03 Sat]
+#+filetags: :SoftwareDevelopment:
+
+- URL :: https://grugbrain.dev/
+
+Collection of thoughts on software development, by Carson Gross.
