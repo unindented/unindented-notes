@@ -1,0 +1,44 @@
+:PROPERTIES:
+:ID:       345a9620-386d-4f15-a633-3056f197f3c8
+:END:
+#+title: Ollama
+#+hugo_bundle: reference_ollama
+#+export_file_name: index
+#+date: [2024-08-03 Sat]
+#+filetags: :Tool:LLM:
+
+- URL :: https://ollama.com/
+
+Tool to manage and interface with LLMs locally.
+
+* Installation
+
+On macOS, you can install through Homebrew. There's a formula and a cask. I prefer installing via the formula, to avoid having another icon in my menu bar:
+
+#+begin_src shell
+brew install ollama
+brew services start ollama
+#+end_src
+
+* Usage
+
+You can start an interactive chat with a model:
+
+#+begin_src shell
+ollama run llama3.1
+#+end_src
+
+If you don't want interactivity, you can provide the prompt as an argument:
+
+#+begin_src shell
+ollama run codellama:7b-instruct "write a fizzbuzz implementation in JavaScript"
+#+end_src
+
+It also exposes a REST API:
+
+#+begin_src shell
+curl http://localhost:11434/api/generate -d '{
+  "model": "llama3.1",
+  "prompt": "write a haiku about llms"
+}'
+#+end_src
