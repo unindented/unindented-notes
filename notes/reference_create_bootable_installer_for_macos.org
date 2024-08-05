@@ -1,0 +1,34 @@
+:PROPERTIES:
+:ID:       c66556e9-a437-48fb-9007-0ceb2590cb69
+:END:
+#+title: Create a bootable installer for macOS
+#+hugo_bundle: reference_create_bootable_installer_for_macos
+#+export_file_name: index
+#+date: [2024-08-04 Sun]
+#+filetags: :macOS:
+
+URL :: https://support.apple.com/101578
+
+* Creating a bootable USB
+
+- Download a full macOS installer from the App Store.
+- Connect a 32GB or larger USB drive.
+- Run the following command from a terminal (replacing =/Volumes/Untitled= with the path to your USB drive):
+
+#+begin_src
+sudo /Applications/Install\ macOS\ Sonoma.app/Contents/Resources/createinstallmedia --volume /Volumes/Untitled --nointeraction
+#+end_src
+
+* Booting from the USB
+
+If you're on Apple silicon, do the following:
+
+1. Turn off the device.
+2. Connect the USB drive.
+3. Press and hold the power button until you see the startup options screen.
+
+If you're on Intel silicon, do this instead::
+
+1. Turn off or restart the device.
+2. Connect the USB drive.
+3. Press and hold ~⌥ Option~ or ~Alt~ until you see the startup manager.
