@@ -1,0 +1,35 @@
+:PROPERTIES:
+:ID:       eaa86229-b7af-4cb9-a767-836b9c92f7df
+:END:
+#+title: macOS startup key combinations
+#+hugo_bundle: reference_macos_startup_key_combinations
+#+export_file_name: index
+#+date: [2024-08-04 Sun]
+#+filetags: :macOS:
+
+- URL :: https://support.apple.com/102603
+
+
+* On Apple silicon
+
+1. Turn off the device.
+2. Press and hold the power button until you see the startup options screen.
+
+* On Intel silicon
+
+| Key combination                             | Description                                                                                                   |
+|---------------------------------------------+---------------------------------------------------------------------------------------------------------------|
+| ~⌘ Cmd~-~R~                                 | Start up from the built-in macOS Recovery system.                                                             |
+| ~⌥ Opt~-~⌘ Cmd~-~R~                         | Start up from macOS Recovery over the internet, using the latest macOS version compatible with your device.   |
+| ~⇧ Shift~-~⌥ Opt~-~⌘ Cmd~-~R~               | Start up from macOS Recovery over the internet, using the macOS version that came installed with your device. |
+| ~⌥ Opt~ or ~Alt~                            | Start up to Startup Manager.                                                                                  |
+| ~⌥ Opt~-~⌘ Cmd~-~P~-~R~                     | Reset NVRAM or PRAM.                                                                                          |
+| ~⇧ Shift~                                   | Start up in safe mode.                                                                                        |
+| ~D~                                         | Start up to the Apple Diagnostics utility.                                                                    |
+| ~⌥ Opt~-~D~                                 | Start up to the Apple Diagnostics utility over the internet.                                                  |
+| ~N~                                         | Start up from a NetBoot server                                                                                |
+| ~⌥ Opt~~N~                                  | Start up from a NetBoot server, using the default boot image.                                                 |
+| ~⌘ Cmd~-~S~                                 | Start up in single-user mode. /Disabled in macOS Mojave or later./                                            |
+| ~T~                                         | Start up in target disk mode.                                                                                 |
+| ~⌘ Cmd~-~V~                                 | Start up in verbose mode.                                                                                     |
+| ~⏏ Eject~ or ~F12~ or mouse/trackpad button | Eject removable media.                                                                                        |
