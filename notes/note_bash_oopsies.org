@@ -1,0 +1,27 @@
+:PROPERTIES:
+:ID:       55d5a125-d1c5-4674-aaf8-86a243b85c9e
+:END:
+#+title: Bash oopsies
+#+hugo_bundle: note_bash_oopsies
+#+export_file_name: index
+#+date: [2024-08-05 Mon]
+#+filetags: :Bash:
+
+* Steam ran =rm -rf /*=
+
+Here's [[https://github.com/ValveSoftware/steam-for-linux/issues/3671][the bug report on GitHub]]. The issue is caused by this bit of code:
+
+#+begin_src shell
+STEAMROOT="$(cd "${0%/*}" && echo $PWD)"
+rm -rf "$STEAMROOT/"*
+#+end_src
+
+If =$STEAMROOT= ends up evaluating to an empty string, the command becomes =rm -rf "/"*=.
+
+* Bumblebee ran =rm -rf /usr=
+
+Here's [[https://github.com/MrMEEE/bumblebee-Old-and-abbandoned/issues/123][the bug report on GitHub]]. The issue is caused by an extra space:
+
+#+begin_src shell
+rm -rf /usr /lib/nvidia-current/xorg/xorg
+#+end_src
